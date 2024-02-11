@@ -22,83 +22,80 @@
   
   .product_management {
     @include mixin.flex(row, center, unset);
-    padding: 4rem;
-  
-    > section {
-      overflow-y: auto;
-      width: 100%;
-      height: 85vh;
-      max-width: 500px;
-      box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.216);
-      background-color: white;
-      padding: 5rem;
-      @include mixin.flex(column, unset, unset, 1rem);
-      position: relative;
-      border-radius: 5px;
-  
-      > h2 {
-        @include mixin.heading(2px);
-        text-align: center;
-      }
-  
-      > img {
-        @include mixin.square(100%);
-        object-fit: cover;
-      }
-  
-      > strong {
-        font-weight: 300;
-      }
-  
-      > span {
-        position: absolute;
-        right: 2rem;
-        top: 2rem;
-      }
-  
-      > p {
-        text-align: center;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-      }
-      > h3 {
-        text-align: center;
-        font-size: 2rem;
-      }
+  padding: 4rem;
+
+  section {
+    overflow-y: hidden;
+    width: 100%;
+    height: 85vh;
+    max-width: 500px;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.216);
+    background-color: white;
+    padding: 5rem;
+    @include mixin.flex(column, unset, unset, 1rem);
+    position: relative;
+    border-radius: 5px;
+
+     h2 {
+      @include mixin.heading(2px);
+      text-align: center;
     }
-  
-    > article {
-      height: 85vh;
+
+     img {
+      @include mixin.square(100%);
+      object-fit: cover;
+    }
+
+     strong {
+      font-weight: 300;
+    }
+
+     span {
+      position: absolute;
+      right: 2rem;
+      top: 2rem;
+    }
+
+     p {
+      text-align: center;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+     h3 {
+      text-align: center;
+      font-size: 2rem;
+    }
+  }   
+
+    article{
+      //height: 105vh;
+     // min-height: 85vh;
       padding: 2rem;
       width: 100%;
       max-width: 400px;
       background-color: white;
       border-radius: 5px;
       box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.216);
-  
-      > form {
+      form {
         @include mixin.flex(column, unset, center, 2rem);
-        > h2 {
+         h2 {
           text-transform: uppercase;
           letter-spacing: 2px;
         }
-  
-        > img {
+         img {
           @include mixin.square(5rem);
           object-fit: cover;
           border-radius: 5px;
         }
-  
-        > div {
+        div{
           width: 100%;
           position: relative;
-          > label {
+          label {
             position: absolute;
             left: 0;
             top: -1.5rem;
           }
-  
-          > input {
+          input {
             @include mixin.inputStyle(
               100%,
               1rem,
@@ -108,34 +105,34 @@
             border-radius: 5px;
           }
         }
-  
-        > button {
-          padding: 1rem;
+        button {
+          padding: 0.8rem;
           border: none;
           background-color: rgb(5, 107, 224);
           color: white;
           width: 100%;
           border-radius: 5px;
-          font-size: 1.1rem;
+          font-size: 1rem;
           cursor: pointer;
         }
+
       }
+
     }
-  
     .shipping_info_card {
-      > h1 {
+       h1 {
         text-align: center;
         @include mixin.heading(2px);
       }
-      > h5 {
-        margin: 2rem 0 0 0.5rem;
-        font-size: 1.1rem;
-        font-weight: 700;
+       h5 {
+         margin: 2rem 0 0 0.5rem; 
+        font-size: 1.1rem; 
+        font-weight: 700; 
       }
-      > p {
-        margin: 0.5rem;
+      p {
+        margin: 0.5rem; 
       }
-      > button {
+       button {
         margin: 2rem 0;
         padding: 1rem;
         border: none;
@@ -143,22 +140,22 @@
         color: white;
         width: 100%;
         border-radius: 5px;
-        font-size: 1.1rem;
+        font-size: 1rem;
         cursor: pointer;
         &:hover {
           opacity: 0.8;
         }
       }
-    }
+    } 
   }
   
   .transaction_product_card {
     @include mixin.flex(row, unset, center, 1rem);
-  
+    background-color: yellow;
     > img {
       @include mixin.square(4rem);
       object-fit: cover;
-      border-radius: 5px;
+      border-radius:5px;
     }
     > span {
       margin-left: auto;

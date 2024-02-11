@@ -8,9 +8,12 @@ import {
   Legend,
   ChartData,
   ChartOptions,
-  ArcElement
+  ArcElement,
+  PointElement,
+  LineElement,
+  Filler
 } from "chart.js";
-import { Bar, Doughnut } from "react-chartjs-2";
+import { Bar, Doughnut, Pie, Line } from "react-chartjs-2";
 
 ChartJS.register(
   CategoryScale,
@@ -19,7 +22,10 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  ArcElement
+  ArcElement,
+  PointElement,
+  LineElement,
+  Filler
 );
 
 const months = ["January", "February", "March", "April", "May", "June", "July"];
@@ -136,7 +142,99 @@ const DoughnutChart = ({
     cutout
   };
 
+
+
   return <Doughnut data={doughnutData} options={doughnutOptions} />;
 };
 
-export { BarChart, DoughnutChart };
+
+interface PieChart {
+  labels: string[];
+  data: number[];
+  backgroundColor: string[];
+  offset?: number;
+}
+
+const PieChart = ({
+  labels,
+  data,
+  backgroundColor,
+  offset,
+}: PieChart) => {
+  const pieChartData: ChartData<"pie", number[], string> = {
+    labels,
+    datasets:[{
+        data, backgroundColor, borderWidth:1,offset
+    }]
+  };
+
+  const pieChartOptions: ChartOptions<"pie"> = {
+    responsive:true,
+    plugins:{
+        legend:{
+            display:false,
+        }
+    },
+  };
+  return <Pie data={pieChartData} options={pieChartOptions} />;
+};
+
+
+interface LineChart {
+  data: number[];
+  label: string;
+  backgroundColor: string;
+  borderColor: string;
+  labels?: string[];
+}
+
+const LineChart = ({
+  data,
+  label,
+  backgroundColor,
+  borderColor,
+  labels = months,
+}: LineChart) => {
+  const options: ChartOptions<"line"> = {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: false,
+      },
+    },
+
+    scales: {
+      y: {
+        beginAtZero: true,
+        grid: {
+          display: false,
+        },
+      },
+      x: {
+        grid: {
+          display: false,
+        },
+      },
+    },
+  };
+
+  const lineChartData: ChartData<"line", number[], string> = {
+    labels,
+    datasets: [
+      {
+        fill: true,
+        label,
+        data,
+        backgroundColor,
+        borderColor,
+      },
+    ],
+  };
+
+  return <Line options={options} data={lineChartData} />;
+};
+
+export { BarChart, DoughnutChart, PieChart, LineChart };

@@ -7,7 +7,6 @@ import USER_FALLBACK_IMAGE from "../assets/userpic.png";
 import data from '../assets/data.json';
 import {BarChart, DoughnutChart} from "../components/Charts";
 import DashboardTable from "../components/DashboardTable";
-
 interface WidgetItem {
   heading: string;
   value: number;
