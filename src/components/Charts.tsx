@@ -110,7 +110,7 @@ interface DoughnutChart {
   backgroundColor: string[];
   cutout?: number | string;
   legends?: boolean;
-  offset?: number;
+  offset?: number[];
 }
 
 const DoughnutChart = ({
@@ -152,7 +152,7 @@ interface PieChart {
   labels: string[];
   data: number[];
   backgroundColor: string[];
-  offset?: number;
+  offset?: number[];
 }
 
 const PieChart = ({

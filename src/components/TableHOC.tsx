@@ -17,7 +17,6 @@ function TableHOC<T extends Object>(
     };
 
     const {
-      getTableProps,
       getTableBodyProps,
       headerGroups,
       page,
